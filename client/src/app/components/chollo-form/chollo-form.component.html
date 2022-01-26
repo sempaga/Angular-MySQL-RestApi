@@ -1,0 +1,32 @@
+<div class="col-md-4 offset-md-2">
+    <div class="card">
+        <div class="card-body">
+            <form action="">
+                <div class="form-group">
+                    <input type="text" name="title" [(ngModel)]="chollo.title" placeholder="Title" class="form-control" autofocus>
+                </div>
+                <div class="form-group">
+                    <textarea name="description" [(ngModel)]="chollo.description" rows="2" placeholder="Description" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="url" name="image URL" [(ngModel)]="chollo.image" placeholder="Image" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="url" name="URL" [(ngModel)]="chollo.url" placeholder="URL" class="form-control">
+                </div>
+                <button class="btn btn-success btn-block" (click)="edit ? updateChollo() : saveNewChollo()">
+          Save
+        </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4">
+    <div class="card card-body text-center">
+        <img [src]="chollo.image == '' ? '/assets/noimage.png' : chollo.image" alt="No Image" class="card-img-top">
+        <h3>{{chollo.id}}. {{chollo.title == '' ? 'Game Title' : chollo.title}}</h3>
+        <p>{{chollo.description == '' ? 'Write your Descrition' : chollo.description}}</p>
+        <p>{{chollo.create_at | date: 'yyyy-MM-dd'}}</p>
+    </div>
+</div>
